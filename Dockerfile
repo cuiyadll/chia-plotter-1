@@ -7,8 +7,9 @@ RUN apt-get update && \
     rm -rf /tmp/* /var/tmp/* /var/lib/apt/lists/*
 
 RUN pip3 install --upgrade pip
-RUN pip install --extra-index-url https://hosted.chia.net/simple/ chia-blockchain==1.2.0 miniupnpc==2.1 && chia init
+RUN pip install --extra-index-url https://hosted.chia.net/simple/ chia-blockchain==1.2.2 miniupnpc==2.1 && chia init
 
+RUN git config --global core.longpaths true
 RUN git clone -b main https://github.com/swar/Swar-Chia-Plot-Manager.git /chia/plotter && \
     cd /chia/plotter && pip install -r requirements.txt
 
